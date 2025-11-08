@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
-public class main{
+public class Main{
     public static void main(String []args){
         Scanner sc= new Scanner (System.in);
         byte opcion=0;
@@ -74,7 +74,7 @@ public class main{
         double[] CMax = new double[niv];
 
         for(int j=0; j<niv; j++){
-            System.out.println("Nivel" (j+1)+ ": ");
+            System.out.println("Nivel " + (j+1)+ ": ");
             System.out.println("Precio por unidad (C): " );
             precios[j]=sc.nextDouble();
 
@@ -93,6 +93,9 @@ public class main{
             double h= i*precios[j];
             double Y = Math.sqrt((2*D*K)/h);
             
+            if (Y < CMin[j]) Y = CMin[j];
+            else if (Y > CMax[j]) Y = CMax[j];
+
             double CC = D * C;             
             double CO = (D / Y) * K;       
             double CM = (Y / 2) * h;     
@@ -105,8 +108,6 @@ public class main{
             System.out.println("Costo por mantenimiento:" + CM);
             System.out.println("Costo total anual:" + CTU);
 
-
-        
         if(CTU<MejorCTU){
             MejorCTU=CTU;
             MejorY=Y;
@@ -115,7 +116,7 @@ public class main{
         System.out.println("Mejor opcion: ");
         System.out.println("Cantidad optima: " + MejorY);
         System.out.println("Costo unitario: " + MejorC);
-        System.out.println("Costo toal minimo: " MejorCTU);
+        System.out.println("Costo toal minimo: " + MejorCTU);
         }
     }
 }
