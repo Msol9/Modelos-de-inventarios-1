@@ -27,13 +27,11 @@ public class Main{
                 System.out.println("Saliendo...");
             }
             default -> {
-                System.out.println("Opcion no valida. Intente de nuevo.")
-            }
+                System.out.println("Opcion no valida. Intente de nuevo.");
             }
         }
-        
-        }while(opcion!=3);
-    }
+    }while(opcion!=3);
+}
     public static void calcularEOQClasico (Scanner sc){
         System.out.println("Ingresa la demanda por unidad de tiempo (D):");
         double D = sc.nextDouble();
@@ -124,5 +122,5 @@ public class Main{
         System.out.println("Cantidad optima (y*): " + mejorY);
         System.out.println("Costo unitario (C): " + mejorC);
         System.out.println("Costo toal minimo (CTU): " + mejorCTU);
-        }
     }
+}
