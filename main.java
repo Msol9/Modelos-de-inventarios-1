@@ -84,26 +84,30 @@ public class main{
             System.out.println("Ingresa cantidad maxima: ");
             CMax[j]=sc.nextDouble();
         }
+        double MejorCT=Double.MAX_VALUE;
+        double MejorY=0;
+        double MejorC=0;
 
         for(int j=0;j<niv; j++){
             double C=precios[j];
             double h= i*precios[j];
             double Y = Math.sqrt((2*D*K)/h);
             
-            double CC = D*C;
-            double CO = (D*K)*Y;
-            double CM = (Y*h)/2;
-            double CTU = CC+CO+CM;
+            double CC = D * C;             
+            double CO = (D / Y) * K;       
+            double CM = (Y / 2) * h;     
+            double CTU = CC + CO + CM;   
 
-            System.out.println("\n\n\tCostos de nivel de descuento " + i+1 + C) ;
+            System.out.println("\nNivel " + (j + 1) + " (C = " + C + "):");
             System.out.println("EOQ : " + Y);
             System.out.println("Costo de compra: " + CC);
             System.out.println("Costo por ordenar: " +CO);
             System.out.println("Costo por mantenimiento:" + CM);
             System.out.println("Costo total anual:" + CTU);
 
-            
+
         }
+        if()
         
     }
 }
