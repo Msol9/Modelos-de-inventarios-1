@@ -11,8 +11,9 @@ public class main{
             System.out.println("\n\n\t Modelos de inventarios (EOQ)");
             System.out.println("1.Modelo EOQ Clasico");
             System.out.println("2.Modelo EOQ con descuento");
-            System.out.println("Salir");
-            System.out.println("Opcion");
+            System.out.println("3.Salir");
+        
+            System.out.println("\n\n\tOpcion");
             opcion=sc.nextByte();
 
         switch (opcion){
@@ -22,7 +23,12 @@ public class main{
             case 2-> {
 
             }
-        }    
+            default -> {
+                System.out.println("Opcion no valida, intente de nuevo");
+            }
+
+        }
+        
         }while(opcion!=3);
     }
     public static void calcularEOQClasico (Scanner sc){
@@ -40,6 +46,8 @@ public class main{
         int n=(int) (L/t0);
         double Lc=L-n*t0;
         double ROP=D*Lc;
+        double TC=K*(D/y)+h*(y/2);
+        double TCU=TC/D;
 
         System.out.println("RESULTADOS DEL MODELO EOQ: ");
         System.out.println("Cantidad economica de pedido (EOQ): "+ y);
@@ -47,6 +55,7 @@ public class main{
         System.out.println("Numero de pedidos dentro del tiempo de entrega (n): " + n);
         System.out.println("Tiempo restante (Lc): " + Lc);
         System.out.println("Punto de reorden (ROP): " + ROP);
-        
+        System.out.println("Costo total anual (TC): "+ TC);
+        System.out.println("Costo total unitacio (TCU): " + TCU);
     }
 }
