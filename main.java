@@ -104,7 +104,7 @@ public class Main{
             double CM = (Y / 2) * h;     
             double CTU = CC + CO + CM;   
 
-            System.out.println("Nivel " + (j + 1) + " (C = " + C + "):");
+            System.out.println("\n      Nivel " + (j + 1) + " (C = " + C + "):");
             System.out.println("EOQ : " + Y);
             System.out.println("Costo de compra: " + CC);
             System.out.println("Costo por ordenar: " +CO);
