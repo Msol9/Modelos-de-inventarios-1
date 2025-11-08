@@ -14,20 +14,20 @@ public class Main{
             System.out.println("3. Salir");
         
             System.out.println("\n\n\tOpcion");
-            opcion = sc.nextByte();
+            opcion = escaner.nextByte();
 
         switch (opcion){
             case 1-> {
                 double t0, Lc, ROP, TC, TCU,c, y, D, K, h, L;
                 int n;
                 System.out.println("Ingresa la demanda por unidad de tiempo (D):");
-                D = sc.nextDouble();
+                D = escaner.nextDouble();
                 System.out.println("Ingresa el costo por pedido (K):");
-                K = sc.nextDouble();
+                K = escaner.nextDouble();
                 System.out.println("Ingresa costo de mantenimiento por unidad en el mismo  periodo de la demanda (h):");
-                h = sc.nextDouble();
+                h = escaner.nextDouble();
                 System.out.println("Ingresa el tiempo de entrega (L):");
-                L = sc.nextDouble();
+                L = escaner.nextDouble();
         
                 y= Math.sqrt((2 * K * D) / h);
                 t0= y / D;
@@ -47,7 +47,7 @@ public class Main{
                 System.out.println("Costo total unitacio (TCU): " + TCU);
             }
             case 2-> {
-                double K, D, i, mejorCTU, mejor Y, mejorC, C, h, Y, CO, CC, CM, CTU;
+                double K, D, i, mejorCTU, mejorY, mejorC, C, h, Y, CO, CC, CM, CTU;
                 int niv;
                 System.out.println("Ingresa el costo del pedido (K): ");
                 K = escaner.nextDouble();
@@ -66,13 +66,13 @@ public class Main{
             for(int j=0; j<niv; j++){
                 System.out.println("\nNivel " + (j+1)+ ": ");
                 System.out.println("    Precio por unidad (C): " );
-                precios[j]=sc.nextDouble();
+                precios[j]=escaner.nextDouble();
 
                 System.out.println("    Ingresa la cantidad minima para aplicar el descuento: ");
-                CMin[j]=sc.nextDouble();
+                CMin[j]=escaner.nextDouble();
 
                 System.out.println("    Ingresa cantidad maxima: ");
-                CMax[j]=sc.nextDouble();
+                CMax[j]=escaner.nextDouble();
             }
 
                 mejorCTU = Double.MAX_VALUE;
@@ -119,5 +119,6 @@ public class Main{
                 System.out.println("Opcion no valida. Intente de nuevo.");
             }
         }
-    }while(opcion!=3);
+        }while(opcion!=3);
+    }
 }
