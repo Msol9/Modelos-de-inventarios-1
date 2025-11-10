@@ -45,6 +45,9 @@ public class Main{
                 System.out.println("Punto de reorden (ROP): " + ROP);
                 System.out.println("Costo total anual (TC): "+ TC);
                 System.out.println("Costo total unitacio (TCU): " + TCU);
+
+                System.out.println("Conclusiones finales del modelos EOQ: " + 
+                "\nDebe comprar " + (int) (y+1)+ " unidades cada " + (int) n + " dias, o cuando el nivel de inventario descienda a " + (int)ROP + " unidades");
             }
             case 2-> {
                 double K, D, i, mejorCTU, mejorY, mejorC, C, h, Y, CO, CC, CM, CTU;
@@ -63,50 +66,50 @@ public class Main{
                 double[] CMin = new double [niv];
                 double[] CMax = new double[niv];
 
-            for(int j=0; j<niv; j++){
-                System.out.println("\nNivel " + (j+1)+ ": ");
-                System.out.println("    Precio por unidad (C): " );
-                precios[j]=escaner.nextDouble();
+                for(int j=0; j<niv; j++){
+                    System.out.println("\nNivel " + (j+1)+ ": ");
+                    System.out.println("    Precio por unidad (C): " );
+                    precios[j]=escaner.nextDouble();
 
-                System.out.println("    Ingresa la cantidad minima para aplicar el descuento: ");
-                CMin[j]=escaner.nextDouble();
+                    System.out.println("    Ingresa la cantidad minima para aplicar el descuento: ");
+                    CMin[j]=escaner.nextDouble();
 
-                System.out.println("    Ingresa cantidad maxima: ");
-                CMax[j]=escaner.nextDouble();
-            }
+                    System.out.println("    Ingresa cantidad maxima: ");
+                    CMax[j]=escaner.nextDouble();
+                }
 
                 mejorCTU = Double.MAX_VALUE;
                 mejorY = 0;
                 mejorC = 0;
 
-            for(int j=0;j<niv; j++){
-                C = precios[j];
-                h = i * C;
-                Y = Math.sqrt((2 * K * D) / h);
+                for(int j=0;j<niv; j++){
+                    C = precios[j];
+                    h = i * C;
+                    Y = Math.sqrt((2 * K * D) / h);
 
-                if (Y < CMin[j]){
-                    Y = CMin[j];
-                }else if (Y > CMax[j]) {
-                    Y = CMax[j];
+                    if (Y < CMin[j]){
+                        Y = CMin[j];
+                    }else if (Y > CMax[j]) {
+                        Y = CMax[j];
+                    }
+                    CC = D * C;             
+                    CO = (D / Y) * K;       
+                    CM = (Y / 2) * h;     
+                    CTU = CC + CO + CM;   
+
+                    System.out.println("\n      Nivel " + (j + 1) + " (C = " + C + "):");
+                    System.out.println("EOQ : " + (int)Y);
+                    System.out.println("Costo de compra: " + (int)CC);
+                    System.out.println("Costo por ordenar: " +(int)CO);
+                    System.out.println("Costo por mantenimiento:" + (int)CM);
+                    System.out.println("Costo total anual:" + (int)CTU);
+
+                    if(CTU < mejorCTU) {
+                        mejorCTU = CTU;
+                        mejorY = Y;
+                        mejorC = C;
+                    }
                 }
-                CC = D * C;             
-                CO = (D / Y) * K;       
-                CM = (Y / 2) * h;     
-                CTU = CC + CO + CM;   
-
-                System.out.println("\n      Nivel " + (j + 1) + " (C = " + C + "):");
-                System.out.println("EOQ : " + Y);
-                System.out.println("Costo de compra: " + CC);
-                System.out.println("Costo por ordenar: " +CO);
-                System.out.println("Costo por mantenimiento:" + CM);
-                System.out.println("Costo total anual:" + CTU);
-
-                if(CTU < mejorCTU) {
-                    mejorCTU = CTU;
-                    mejorY = Y;
-                    mejorC = C;
-                }
-            }
                 System.out.println("\n      Mejor opcion: ");
                 System.out.println("Cantidad optima (y*): " + mejorY);
                 System.out.println("Costo unitario (C): " + mejorC);
