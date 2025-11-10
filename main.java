@@ -37,7 +37,7 @@ public class Main{
                 TC=K * (D / y ) + h * (y / 2);
                 TCU = TC / D;
 
-                System.out.println("\n  RESULTADOS DEL MODELO EOQ: ");
+                System.out.println("\n\n  RESULTADOS DEL MODELO EOQ: ");
                 System.out.println("Cantidad economica de pedido (EOQ): "+ y);
                 System.out.println("Duracion del ciclo (t0): " + t0);
                 System.out.println("Numero de pedidos dentro del tiempo de entrega (n): " + n);
@@ -46,11 +46,11 @@ public class Main{
                 System.out.println("Costo total anual (TC): "+ TC);
                 System.out.println("Costo total unitacio (TCU): " + TCU);
 
-                System.out.println("Conclusiones finales del modelos EOQ: " + 
+                System.out.println("\nConclusiones finales del modelo EOQ: " + 
                 "\nDebe comprar " + (int) (y+1)+ " unidades cada " + (int) n + " dias, o cuando el nivel de inventario descienda a " + (int)ROP + " unidades");
             }
             case 2-> {
-                double K, D, i, mejorCTU, mejorY, mejorC, C, h, Y, CO, CC, CM, CTU, Lc, Le, L, n, t0, ROP;
+                double K, D, i, mejorCTU, mejorY, mejorC, C, h, Y, CO, CC, CM, CTU, Lc, L, n, t0, ROP;
                 int niv;
                 System.out.println("Ingresa el costo del pedido (K): ");
                 K = escaner.nextDouble();
@@ -99,7 +99,7 @@ public class Main{
                     CM = (Y / 2) * h;     
                     CTU = CC + CO + CM;   
 
-                    System.out.println("\n      Nivel " + (j + 1) + " (C = " + C + "):");
+                    System.out.println("\n\n      Nivel " + (j + 1) + " (C = " + C + "):");
                     System.out.println("EOQ : " + (int)Y);
                     System.out.println("Costo de compra: " + (int)CC);
                     System.out.println("Costo por ordenar: " +(int)CO);
@@ -112,17 +112,14 @@ public class Main{
                         mejorC = C;
                     }
                 }
-                System.out.println("\n      Mejor opcion: ");
-                System.out.println("Cantidad optima (y*): " + mejorY);
-                System.out.println("Costo unitario (C): " + mejorC);
-                System.out.println("Costo total minimo (CTU): " + mejorCTU);
+                System.out.println("\n\n      Mejor opcion: ");
+                System.out.println("Cantidad optima (y*): " + (int)mejorY);
+                System.out.println("Costo unitario (C): " + (int)mejorC);
+                System.out.println("Costo total minimo (CTU): " + (int)mejorCTU);
 
-                t0= mejorY / D;
-                n = (int) (L / t0);
-                Lc = L - n * t0;
-                ROP= D*Lc;
+                ROP= L*D;
 
-                System.out.println("\nPunto de reorden: " + ROP);
+                System.out.println("\nPunto de reorden: " + (int)ROP);
                 }
 
             case 3-> {
