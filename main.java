@@ -50,7 +50,7 @@ public class Main{
                 "\nDebe comprar " + (int) (y+1)+ " unidades cada " + (int) n + " dias, o cuando el nivel de inventario descienda a " + (int)ROP + " unidades");
             }
             case 2-> {
-                double K, D, i, mejorCTU, mejorY, mejorC, C, h, Y, CO, CC, CM, CTU;
+                double K, D, i, mejorCTU, mejorY, mejorC, C, h, Y, CO, CC, CM, CTU, Lc, Le, L, n, t0, ROP;
                 int niv;
                 System.out.println("Ingresa el costo del pedido (K): ");
                 K = escaner.nextDouble();
@@ -58,6 +58,8 @@ public class Main{
                 D = escaner.nextDouble();
                 System.out.println("Ingresa porcentaje de descuento de mantenimiento (En decimal): ");
                 i = escaner.nextDouble();
+                System.out.println("Ingresa tiempo de entrega: ");
+                L = escaner.nextDouble();
         
                 System.out.println("¿Cuantos niveles de descuento hay?: ");
                 niv = escaner.nextInt();
@@ -113,8 +115,16 @@ public class Main{
                 System.out.println("\n      Mejor opcion: ");
                 System.out.println("Cantidad optima (y*): " + mejorY);
                 System.out.println("Costo unitario (C): " + mejorC);
-                System.out.println("Costo toal minimo (CTU): " + mejorCTU);
+                System.out.println("Costo total minimo (CTU): " + mejorCTU);
+
+                t0= mejorY / D;
+                n = (int) (L / t0);
+                Lc = L - n * t0;
+                ROP= D*Lc;
+
+                System.out.println("\nPunto de reorden: " + ROP);
                 }
+
             case 3-> {
                 System.out.println("Saliendo...");
             }
